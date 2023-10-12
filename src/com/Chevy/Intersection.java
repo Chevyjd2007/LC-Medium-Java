@@ -1,17 +1,19 @@
 package com.Chevy;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Intersection {
 
     public static void main(String[] args) {
-        int[] num1 = {1, 3, 4, 5, 9};
+        int[] num1 = {1, 3, 4, 5, 9, 48};
 
-        int[] num2 = {1, 3, 9};
+        int[] num2 = {1, 3, 9, 23, 48, 101};
 
-        int[] answer = intersection(num1, num2);
+        int[] answer = intersection2(num1, num2);
 
         for (int num : answer) {
             System.out.println(num);
@@ -49,5 +51,41 @@ public class Intersection {
 
         return answer;
 
+    }
+
+    // Another way to approach this
+    public static int[] intersection2(int[] num1, int[] num2) {
+        // We will iterate through the first array first.
+        if (num2.length > num1.length) {
+            return intersection2(num2, num1);
+        }
+
+        // This list will hold all the values of the first array
+        List<Integer> list = new ArrayList<>();
+
+        for (int num : num1) {
+            list.add(num);
+        }
+
+        // This array will contain all the values that intercept between list and array 2
+        List<Integer> intersection = new ArrayList<>();
+
+        for (int i = 0; i < num2.length; i++) {
+            if (list.contains(num2[i])) {
+                intersection.add(num2[i]);
+            }
+        }
+
+        // This array holds everything in the interception list and will be returned
+        int[] answer = new int[intersection.size()];
+
+        // This pointer will keep track of the following loop
+        int pointer = 0;
+
+        for (int num : intersection) {
+            answer[pointer++] = num;
+        }
+
+        return answer;
     }
 }
