@@ -20,6 +20,7 @@ public class Intersection {
         }
     }
 
+    // Hashset solution.
     public static int[] intersection(int[] num1, int[] num2) {
 
         // We will need an
@@ -71,7 +72,8 @@ public class Intersection {
         List<Integer> intersection = new ArrayList<>();
 
         for (int i = 0; i < num2.length; i++) {
-            if (list.contains(num2[i])) {
+            // The second condition here will prevent duplicates from populating the list
+            if (list.contains(num2[i]) && !intersection.contains(num2[i])) {
                 intersection.add(num2[i]);
             }
         }
