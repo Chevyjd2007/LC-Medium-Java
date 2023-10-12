@@ -5,6 +5,9 @@ public class MaximumSubarray {
 
     }
 
+    /*
+        This solution was developed with the help of youtuber neetcode.
+     */
     public static int maxSubArrau(int[] nums) {
         // We can't instatiate largestSum to 0 because there may be negative numbers.
         int largestSum = nums[0];
