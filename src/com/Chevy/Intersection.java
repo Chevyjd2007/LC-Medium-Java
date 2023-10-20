@@ -23,7 +23,7 @@ public class Intersection {
     // Hashset solution.
     public static int[] intersection(int[] num1, int[] num2) {
 
-        // We will need an
+        // We will need an initial set that will contain all non duplicate values of array num1
         Set<Integer> set1 = new HashSet<>();
 
         // You add all the values from array num1 into the set.
@@ -54,7 +54,7 @@ public class Intersection {
 
     }
 
-    // Another way to approach this
+    // My initial approach to this problem during the interview
     public static int[] intersection2(int[] num1, int[] num2) {
         // We will iterate through the first array first.
         if (num2.length > num1.length) {
